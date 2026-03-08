@@ -1,0 +1,43 @@
+# ============================================================
+# RAG Pipeline - Dependencies
+# ============================================================
+#
+# INSTALL INSTRUCTIONS (2 steps):
+#
+#   Step 1: Install CPU-only PyTorch first (saves ~1.3GB vs standard)
+#     pip install torch --index-url https://download.pytorch.org/whl/cpu
+#
+#   Step 2: Install the rest
+#     pip install -r requirements.txt
+#
+# ============================================================
+
+# --- Vector Database ---
+# ChromaDB: Embedded vector database (no server needed)
+# Stores document embeddings and enables similarity search
+chromadb>=0.4.0
+
+# --- Embedding Model ---
+# Sentence Transformers: Local embedding models (no API key needed)
+# We use "all-MiniLM-L6-v2" — fast, 384-dim vectors, great quality
+# NOTE: Requires torch (install CPU-only torch FIRST, see above)
+sentence-transformers>=2.2.0
+
+# --- PDF Parsing ---
+# PyMuPDF (fitz): Fast, accurate PDF text extraction
+# Better than PyPDF2 for complex layouts and tables
+PyMuPDF>=1.23.0
+
+# --- AI Providers (for generation step) ---
+# Groq: Fast LLM inference (already in your AI factory)
+groq>=0.4.0
+
+# Google GenAI: Gemini models (new SDK)
+google-genai>=1.0.0
+
+# --- Utilities ---
+# python-dotenv: Load .env files for API keys
+python-dotenv>=1.0.0
+
+# Rich: Beautiful terminal output (progress bars, tables, colored text)
+rich>=13.0.0

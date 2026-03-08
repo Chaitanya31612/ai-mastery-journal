@@ -1,4 +1,3 @@
-import ollama
 from .base import AIAnalyzerInterface, AIResponse, AIProvider
 
 
@@ -19,6 +18,7 @@ class OllamaAnalyzer(AIAnalyzerInterface):
 
     def analyze(self, content: str, prompt: str) -> AIResponse:
         try:
+            import ollama
             full_prompt = f"{prompt}\n\nContent:\n{content}"
 
             response = ollama.chat(
